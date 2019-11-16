@@ -37,7 +37,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'v1.users',
+    # 'v1.cards',
+    # 'v1.merchants'
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_VERSIONING_CLASS': 'rest_framework.versioning.NamespaceVersioning'
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -50,6 +58,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'DigiWallet.urls'
+
+AUTH_USER_MODEL = 'users.User'
 
 TEMPLATES = [
     {
