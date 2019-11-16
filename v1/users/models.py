@@ -1,6 +1,7 @@
 from django.contrib.auth.base_user import BaseUserManager
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
 from django.db import models
+from django.template.defaultfilters import upper
 
 
 class UserTypes:
@@ -20,6 +21,9 @@ class UserTypes:
 class UserManager(BaseUserManager):
     def create_user(self, email, user_type, first_name, last_name, password, **extra_fields):
         email = self.normalize_email(email)
+        first_name = upper(first_name)
+        last_name = upper(last_name)
+
         user = self.model(email=email, user_type=user_type, first_name=first_name, last_name=last_name, **extra_fields)
         user.set_password(password)
         user.save(using=self._db)
