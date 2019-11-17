@@ -41,6 +41,7 @@ class UserManager(BaseUserManager):
 class User(AbstractBaseUser, PermissionsMixin):
     objects = UserManager()
 
+    user_id = models.AutoField(primary_key=True, unique=True)
     email = models.EmailField(unique=True)
     first_name = models.CharField(max_length=256)
     last_name = models.CharField(max_length=256)

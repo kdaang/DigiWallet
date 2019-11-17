@@ -39,8 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'v1.users',
-    # 'v1.cards',
-    # 'v1.merchants'
+    'v1.merchants',
 ]
 
 REST_FRAMEWORK = {
@@ -60,6 +59,8 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'DigiWallet.urls'
 
 AUTH_USER_MODEL = 'users.User'
+
+USE_TZ = True
 
 TEMPLATES = [
     {
