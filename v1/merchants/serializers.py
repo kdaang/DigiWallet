@@ -8,6 +8,6 @@ class MerchantSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Merchant
-        fields = ['user', 'company_id', 'company_name']
+        fields = ['user', 'company_id', 'company_name', 'point_system']
 
     # def create(self, validated_data):
