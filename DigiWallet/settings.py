@@ -45,7 +45,8 @@ INSTALLED_APPS = [
     'v1.customers',
     'v1.stores',
     'v1.employees',
-    'v1.company_customers'
+    'v1.company_customers',
+    'v1.transactions'
 ]
 
 REST_FRAMEWORK = {
