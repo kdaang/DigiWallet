@@ -1,6 +1,5 @@
 from DigiWallet.settings import AUTH_USER_MODEL
 from django.db import models
-
 from v1.point_systems.models import PointSystem
 from v1.users.models import User
 

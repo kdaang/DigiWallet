@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'v1.users',
     'v1.merchants',
     'v1.point_systems',
-    'v1.cards'
+    'v1.cards',
+    'v1.customers'
 ]
 
 REST_FRAMEWORK = {
