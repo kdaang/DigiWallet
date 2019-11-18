@@ -1,5 +1,5 @@
 from django.db import models
-from DigiWallet.settings import AUTH_USER_MODEL
+from django.conf import settings
 
 
 class EmployeeManager(models.Manager):
@@ -10,7 +10,7 @@ class EmployeeManager(models.Manager):
 class Employee(models.Model):
     objects = EmployeeManager()
 
-    user = models.OneToOneField(to=AUTH_USER_MODEL, primary_key=False, on_delete=models.CASCADE)
+    user = models.OneToOneField(to=settings.AUTH_USER_MODEL, primary_key=False, on_delete=models.CASCADE)
     employee_id = models.BigAutoField(primary_key=True, unique=True)
     # TODO: EMPLOYEE DETAILS
 
