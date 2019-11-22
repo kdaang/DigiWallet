@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_extensions',
     'rest_framework',
     'v1.users',
     'v1.merchants',
@@ -68,6 +69,11 @@ ROOT_URLCONF = 'DigiWallet.urls'
 AUTH_USER_MODEL = 'users.User'
 
 USE_TZ = True
+
+GRAPH_MODELS = {
+  'all_applications': True,
+  'group_models': True,
+}
 
 TEMPLATES = [
     {

@@ -21,5 +21,6 @@ urlpatterns = [
     path('api/v1/merchants/', include('v1.merchants.urls', namespace='v1:merchants')),
     path('api/v1/stores/', include('v1.stores.urls', namespace='v1:stores')),
     path('api/v1/customers/', include('v1.customers.urls', namespace='v1:customers')),
-    path('api/v1/employees/', include('v1.employees.urls', namespace='v1:employees'))
+    path('api/v1/employees/', include('v1.employees.urls', namespace='v1:employees')),
+    path('api/v1/transactions/', include('v1.transactions.urls', namespace='v1:transactions'))
 ]
