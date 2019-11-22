@@ -1,9 +1,16 @@
 from django.db import models
 from django.conf import settings
+from rest_framework.exceptions import ValidationError
 
 
 class TransactionManager(models.Manager):
+    # MUST BE A POSITIVE TRANSACTION FROM_USER -> TO_USER
     def create_transaction(self, **fields):
+        if fields['total'] <= 0:
+            print('HERERERER')
+            raise ValidationError(detail='invalid parameters')
+            return
+
         transaction = self.model(**fields)
         transaction.save(using=self._db)
 
