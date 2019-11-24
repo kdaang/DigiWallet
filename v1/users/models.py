@@ -55,3 +55,17 @@ class User(AbstractBaseUser, PermissionsMixin):
     EMAIL_FIELD = 'email'
 
     REQUIRED_FIELDS = []
+
+    def get_merchant(self):
+        if self.user_type == UserTypes.MERCHANT:
+            return self.merchant
+        elif self.user_type == UserTypes.EMPLOYEE:
+            return self.employee.get_merchant()
+        else:
+            return None
+
+    def get_customer(self):
+        if self.user_type == UserTypes.CUSTOMER:
+            return self.customer
+        else:
+            return None

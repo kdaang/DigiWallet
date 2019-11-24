@@ -16,12 +16,12 @@ class GetTransaction(APIView):
         return Response(data=transactions_serializer.data)
 
 
-class PostTransaction(APIView):
+class PostMerchantTransaction(APIView):
     def post(self, request):
         data = request.data
         data['from_user'] = request.user.pk
 
-        transaction_serializer = TransactionSerializer(data=data)
+        transaction_serializer = TransactionSerializer(data=data, context={'request': request})
 
         if transaction_serializer.is_valid(raise_exception=True):
             transaction_serializer.save()

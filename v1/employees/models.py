@@ -29,3 +29,6 @@ class Employee(models.Model):
     store = models.ForeignKey(to=Store, primary_key=False, on_delete=models.SET_NULL, null=True, blank=True)
     # TODO: EMPLOYEE DETAILS
 
+    def get_merchant(self):
+        return self.store.company
+
