@@ -9,14 +9,14 @@ from v1.point_systems.models import PointSystem
 
 class TransactionManager(models.Manager):
     def create_transaction(self, **fields):
-        transaction = self.model(**fields)
-        # transaction.save(using=self._db)
+        _transaction = self.model(**fields)
+        _transaction.save(using=self._db)
 
-        return transaction
+        return _transaction
 
     @transaction.atomic
     def create_merchant_transaction(self, **fields):
-        point_system = PointSystem.objects.get(pk=fields['from_user'].pk)
+        point_system = PointSystem.objects.get(pk=fields['from_user'].get_merchant().point_system.pk)
 
         if point_system.is_enabled:
             fields['total'] = fields['total']*100*point_system.points_per_cent

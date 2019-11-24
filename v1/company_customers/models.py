@@ -11,7 +11,7 @@ class CompanyCustomerManager(models.Manager):
         return company_customer
 
     def get_or_create_company_customer(self, **fields):
-        company_customer = self.get_or_create(company_id=fields['company'], customer_id=fields['customer'])
+        company_customer = self.get_or_create(company=fields['company'], customer=fields['customer'])
 
         return company_customer[0]
 1
